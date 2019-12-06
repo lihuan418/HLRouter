@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600001</key>
+	<dict>
+		<key>page</key>
+		<string>HLFirstViewController</string>
+		<key>description</key>
+		<string>测试第一页</string>
+	</dict>
+	<key>600002</key>
+	<dict>
+		<key>page</key>
+		<string>HLSecondViewController</string>
+		<key>description</key>
+		<string>测试第二页</string>
+	</dict>
+	<key>600003</key>
+	<dict>
+		<key>page</key>
+		<string>HLThirdViewController</string>
+		<key>description</key>
+		<string>测试第三页</string>
+	</dict>
+</dict>
+</plist>

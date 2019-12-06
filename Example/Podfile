@@ -1,0 +1,8 @@
+use_frameworks!
+
+target 'HLRouter_Example' do
+  pod 'HLRouter', :path => '../'
+  target 'HLRouter_Tests' do
+    inherit! :search_paths
+  end
+end

@@ -1,0 +1,16 @@
+PODS:
+  - HLRouter (0.1.21)
+
+DEPENDENCIES:
+  - HLRouter (from `../`)
+
+EXTERNAL SOURCES:
+  HLRouter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HLRouter: 61bfd88cdc127cf1f855017bd90ac5be2bad887d
+
+PODFILE CHECKSUM: 22e86419f70a59d02dca90bbeec178b495cd2e04
+
+COCOAPODS: 1.5.3
