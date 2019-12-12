@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HLRouter'
-  s.version          = '0.1.21'
+  s.version          = '1.0.0'
   s.summary          = '路由模块'
 
   s.description      = <<-DESC
