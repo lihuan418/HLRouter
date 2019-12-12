@@ -20,8 +20,6 @@
     HLRouterConfigureModel *configureModel = [[HLRouterConfigureModel alloc] init];
     configureModel.appKey = @"hl";
     configureModel.routerTableName = @"HLRouterTable.plist";
-    configureModel.errerErrorViewControllerClass = NSClassFromString(@"HLErrorViewController");
-    configureModel.webViewControllerClass = NSClassFromString(@"HLWebViewController");
     
     if (self = [super initWithConfigureModel:configureModel jumpURL:@"hl://goto?type=inner_app&pid=600001"]) {
         

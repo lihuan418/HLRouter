@@ -11,6 +11,4 @@
 @interface HLRouterConfigureModel : NSObject
 @property (nonatomic, strong) NSString *appKey;
 @property (nonatomic, strong) NSString *routerTableName;
-@property (nonatomic, assign) Class webViewControllerClass;
-@property (nonatomic, assign) Class errerErrorViewControllerClass;
 @end

@@ -14,7 +14,6 @@ NSString * const kHLRouterPageIdKey = @"pid";
 NSString * const kHLRouterActionTypeKey = @"type";
 
 NSString * const kHLRouterActionInnerPage = @"inner_app";
-NSString * const kHLRouterActionInnerWebPage = @"inner_web";
 NSString * const kHLRouterActionOutsideWebPage = @"outside_web";
 NSString * const kHLRouterActionOutsideApp = @"outside_app";
 

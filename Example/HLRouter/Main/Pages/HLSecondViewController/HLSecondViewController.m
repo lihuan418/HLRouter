@@ -17,13 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addBackIcon:[UIImage imageNamed:@"HLTopBarBack"]];
-
-    UIButton *secondBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 100, 100, 20)];
-    [secondBtn setTitle:@"网页" forState:UIControlStateNormal];
-    [secondBtn setBackgroundColor:[UIColor blackColor]];
-    [secondBtn addTarget:self action:@selector(pressweb:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:secondBtn];
+    [self addBackIcon:[UIImage imageNamed:@"topbar_back"]];
 
     UIButton *newBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 300, 100, 20)];
     [newBtn setTitle:@"新页面" forState:UIControlStateNormal];
@@ -40,18 +34,11 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)pressweb:(id)sender{
-    UIViewController *webViewController = [self HL_viewControllerWithPageName:@"HLWebViewController" otherParam:@{@"url":@"https://www.baidu.com"}];
-    [self HL_jumpToViewControllerWithViewController:webViewController animated:YES targetCallBack:nil jumpStyle:HLRouterJumpStyleOfPush];
-}
-
 - (void)pressSecondView:(id)sender{
 
     HLRouterConfigureModel *configureModel = [[HLRouterConfigureModel alloc] init];
     configureModel.appKey = @"hl";
     configureModel.routerTableName = @"HLRouterTable.plist";
-    configureModel.errerErrorViewControllerClass = NSClassFromString(@"HLErrorViewController");
-    configureModel.webViewControllerClass = NSClassFromString(@"HLWebViewController");
     HLPickerController *picker = [[HLPickerController alloc] initWithConfigureModel:configureModel jumpURL:@"hl://goto?type=inner_app&pid=600002"];
 
     [self HL_jumpToViewControllerWithViewController:picker animated:YES targetCallBack:nil jumpStyle:HLRouterJumpStyleOfPresent];

@@ -14,7 +14,6 @@ FOUNDATION_EXTERN NSString * const kHLRouterPageIdKey ;
 FOUNDATION_EXTERN NSString * const kHLRouterActionTypeKey ;
 
 FOUNDATION_EXTERN NSString * const kHLRouterActionInnerPage ;
-FOUNDATION_EXTERN NSString * const kHLRouterActionInnerWebPage ;
 FOUNDATION_EXTERN NSString * const kHLRouterActionOutsideWebPage ;
 FOUNDATION_EXTERN NSString * const kHLRouterActionOutsideApp ;
 

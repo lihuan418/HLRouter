@@ -11,7 +11,6 @@
 @interface HLBaseViewController : HLViewController
 
 @property (nonatomic, strong) UINavigationBar    *customNavigationBar;     //自定义的NavigationBar
-@property (nonatomic, strong) UINavigationItem   *customNaviagtionItem;    //NavigationItem
 @property (nonatomic, strong) UILabel            *navTitleLabel;           // 导航栏标题栏
 
 - (void)addCustomNavMethod;                //添加导航栏

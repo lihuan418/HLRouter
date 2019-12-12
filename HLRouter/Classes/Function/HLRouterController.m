@@ -39,7 +39,7 @@ static inline bool HLRouterIsUsableNSString(id aString, NSString *inequalString)
 @implementation HLRouterController
 - (instancetype)initWithConfigureModel:(HLRouterConfigureModel*)configureModel{
     self = [super init];
-    if (self && configureModel.appKey && configureModel.routerTableName && configureModel.webViewControllerClass ) {
+    if (self && configureModel.appKey && configureModel.routerTableName) {
         self.kHLRouterAPPKey = configureModel.appKey;
         self.routerTable = [[HLRouterTable alloc] initWithTableName:configureModel.routerTableName];
         self.configureModel = configureModel;
@@ -58,21 +58,10 @@ static inline bool HLRouterIsUsableNSString(id aString, NSString *inequalString)
 }
 
 - (UIViewController*)viewControllerWithPageName:(NSString *)pageName otherParam:(NSDictionary*)otherParam {
-    
-    if ([pageName isEqualToString:NSStringFromClass(self.configureModel.webViewControllerClass)]) {
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:kHLRouterActionInnerWebPage forKey:kHLRouterActionTypeKey];
-        if (otherParam) {
-            [params addEntriesFromDictionary:otherParam];
-        }
-        return [self viewControllerWithParams:params];
-    }else{
-        NSString *pageId = [self.routerTable pageIdByPageName:pageName];
-        if (pageId) {
-            return [self viewControllerWithPageId:pageId otherParam:otherParam];
-        }
+    NSString *pageId = [self.routerTable pageIdByPageName:pageName];
+    if (pageId) {
+        return [self viewControllerWithPageId:pageId otherParam:otherParam];
     }
-    
     return nil;
 }
 
@@ -183,20 +172,6 @@ static inline bool HLRouterIsUsableNSString(id aString, NSString *inequalString)
                     }
                 }
             }
-        }else if([type isEqualToString:kHLRouterActionInnerWebPage]){
-            if (self.configureModel.webViewControllerClass) {
-                id vc = [[self.configureModel.webViewControllerClass alloc] init];
-                if ([vc isKindOfClass:[UIViewController class]]) {
-                    if ([vc respondsToSelector:@selector(setParam:)]) {
-                        [vc performSelector:@selector(setParam:) withObject:param];
-                    }
-                    if ([vc respondsToSelector:@selector(setCustomNavigationController:)]) {
-                        [vc performSelector:@selector(setCustomNavigationController:) withObject:self.navigator];
-                    }
-                    return vc;
-                }
-                return nil;
-            }
         }
     }
     return nil;
@@ -295,11 +270,7 @@ static inline bool HLRouterIsUsableNSString(id aString, NSString *inequalString)
                 UIViewController *controller =  [self viewControllerWithParams:param];
                 return [self jumpToViewControllerWithViewController:controller animated:animated targetCallBack:targetCallBack jumpStyle:jumpStyle];
             }
-        }else if([type isEqualToString:kHLRouterActionInnerWebPage]){
-            UIViewController *controller =  [self viewControllerWithParams:param];
-            return [self jumpToViewControllerWithViewController:controller animated:animated targetCallBack:targetCallBack jumpStyle:jumpStyle];
-        }
-        else if ([type isEqualToString:kHLRouterActionOutsideWebPage]) { // 外部网页
+        }else if ([type isEqualToString:kHLRouterActionOutsideWebPage]) { // 外部网页
             __block BOOL canOpenUrl = NO ;
             NSString *openUrlString= param[@"request"];
             NSURL *openUrl = [NSURL URLWithString:openUrlString];
